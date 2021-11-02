@@ -1,0 +1,14 @@
+input[type="radio"] {
+    display: none;
+  }
+  #selectedTemplate + img {
+    filter: grayscale(1);
+  }
+  #selectedTemplate:checked + img {
+    filter: none;
+  }
+  
+  .ImageWrapper{
+    cursor: pointer;
+  
+  }

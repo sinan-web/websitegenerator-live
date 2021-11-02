@@ -1,0 +1,99 @@
+{% extends "base.html" %} 
+{% block title %} Wunschwebsite wählen {% endblock %}
+{% block content %}
+<section class="my-5 text-center">
+  <h1>Deine Wunschwebsite - mit nur einem Klick</h1>
+  <span class="lead">
+    Wähle jetzt unten Dein Wunschtemplate aus. Du kannst es gerne jederzeit in
+    Deinem Dashboard ändern.</span
+  >
+</section>
+
+{% comment %} Templateauswahl {% endcomment %}
+<section class="d-flex justify-content-center align-items-center">
+<div>
+<form method="POST">
+  {% csrf_token %}
+  <div>
+    <label class="ImageWrapper">
+      <input
+        id="selectedTemplate"
+        name="templateselection"
+        type="radio"
+        value="templateOne.html"
+        checked
+      />
+      <img class="selectedTemplate" width=220px height=400px
+      src=http://127.0.0.1:8000/media/assets/images/template1.jpg>
+    </label>
+    <label class="ImageWrapper">
+      <input
+        id="selectedTemplate"
+        name="templateselection"
+        type="radio"
+        value="templateTwo.html"
+      />
+      <img width=220px height=400px
+      src=http://127.0.0.1:8000/media/assets/images/template2.jpg>
+    </label>
+    <label class="ImageWrapper">
+      <input
+        id="selectedTemplate"
+        name="templateselection"
+        type="radio"
+        value="templateThree.html"
+      />
+      <img width=220px height=400px
+      src=http://127.0.0.1:8000/media/assets/images/template3.jpg>
+    </label>
+  </div>
+  <div class=" my-5 d-flex justify-content-center align-items-center" >
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#exampleModal"
+  >
+    Template speichern
+  </button>
+  </diV>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Bist Du sicher, dieses Template zu nutzen?
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">...</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Abbrechen
+          </button>
+          <button type="submit" class="btn btn-primary">Template nutzen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+</section>
+
+{% endblock %}
